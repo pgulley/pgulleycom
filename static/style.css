@@ -1,0 +1,48 @@
+body{
+	background:#3f3f3f;
+	color:white;
+	margin-left:10	;
+	margin-right:0;
+	margin-top:10;
+	font-family: Satoshi variable, sans-serif;
+}
+
+h1{
+
+}
+
+header{
+	border-bottom: 2px solid;
+  	margin-bottom: 10px;
+ 	width: 90%;
+}
+
+svg{
+	display:block;
+	position:fixed;
+	right:0;
+	top:0;
+	white-space:pre-wrap;
+}
+
+.buttons{
+	margin-top:10px;
+	margin-left:10px;
+	margin-bottom:20px;
+}
+
+text{
+	white-space: pre;
+}
+
+.main{
+	font-size:1.5em;	
+	width:80%;
+}
+
+.log{
+	font-style:italic;
+	display:inline-block;
+	margin-left:10px;
+
+}
