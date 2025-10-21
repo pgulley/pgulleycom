@@ -1,7 +1,7 @@
 ---
 title: "Creative Coding: First Year Seminar Curriculum"
 excerpt: "Exploring the use of creativity in early computer science education"
-date: 2024-08-01
+date: 2025-10-20
 ---
 
-## More Context, incoming...
+## Under Construction
