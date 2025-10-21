@@ -91,7 +91,7 @@ function vertwiggle(iterations, color, draw, durations, bead){
  	}
 
  	//Render the thing!
- 	var appear_duration = 1000 + Math.random()*10000
+ 	var appear_duration = 10000
 
  	this.path = this.draw.path(this.string())
  	this.path.fill('none')
@@ -114,7 +114,7 @@ function vertwiggle(iterations, color, draw, durations, bead){
 	}
 
 	this.fadeout = function(){
-		var clear_duration = 1000 + Math.random()*4000
+		var clear_duration = 5000
 		$(`#${this.path.id()}`).animate({stroke:"rgba(0,0,0,0)"}, clear_duration)
 		this.textpath.animate(clear_duration).attr({"fill-opacity":0})
 		
@@ -148,7 +148,7 @@ function random_beads(length_ceiling){
 //// top level manager. 
 // final version will need to be able to index the wigglers by an id, and directly edit their attributes. 
 function wiggle_manager(colors, durations, iterations){
-	this.draw = SVG().addTo('body').size(window.innerWidth/7, window.innerHeight)
+	this.draw = SVG().addTo('.right-column').size(200, window.innerHeight)
 	this.wiggles = []
 
 	//roughly speaking, these define the character of the wigglers.
@@ -182,22 +182,23 @@ SVG.on(document, 'DOMContentLoaded', function() {
 	jQuery.Color.hook( "stroke" ) //So we can animate the svg stroke color via jquery
 
 	//"character" settings
-	var colors = ['#ff0000aa','#ffffffaa','#00ccffaa','#ff0066aa','#000066aa',"#aa0aa8aa", "#60700faa"]
-	var durations = [5000,6000,3500,4050,4800,10000,20000,15000,25000,50000,100000]
-	var iterations = [4,5,6,7,8,9,10]
+	var colors = ['#00ccffaa','#ff0066aa','#000066aa',"#aa0aa8aa", "#60700faa"]
+	var durations = [8000,10000,12000,15000,18000,20000,25000,30000,35000,40000,50000]
+	var iterations = [3,4,5,6,7]
 	
 	//setup the manager
 	manager = new wiggle_manager(colors, durations, iterations)
-	manager.add_wiggle()
-	manager.add_wiggle()
-	manager.add_wiggle()
-	manager.add_wiggle()
-	manager.add_wiggle()
+	
+	// Add initial wiggles with staggered timing
+	setTimeout(function() { manager.add_wiggle() }, 0)
+	setTimeout(function() { manager.add_wiggle() }, 5000)
+	setTimeout(function() { manager.add_wiggle() }, 10000)
+	setTimeout(function() { manager.add_wiggle() }, 15000)
 	setInterval(function(){
 			manager.remove_wiggle()
 			manager.add_wiggle()
 	
-	},5000)	
+	},20000)	
 
 
 	//ui 
@@ -213,6 +214,37 @@ SVG.on(document, 'DOMContentLoaded', function() {
 	setInterval(function(){
 		$("#num_wigs").text(manager.wiggles.length)
 	},100)
+
+	// Handle window resize
+	window.addEventListener('resize', function() {
+		// Clear existing wiggles
+		manager.wiggles.forEach(function(wig) {
+			wig.fadeout()
+			setTimeout(function() {
+				wig.tl.persist(false)
+				wig.tl.stop()
+				$(`#${wig.path.id()}`).remove()
+				if (wig.textpath) {
+					$(`#${wig.textpath.id()}`).parent().remove()
+				}
+			}, 1000)
+		})
+		
+		// Clear the SVG canvas
+		manager.draw.clear()
+		
+		// Recreate SVG canvas with new dimensions
+		manager.draw.size(200, window.innerHeight)
+		
+		// Clear wiggles array
+		manager.wiggles = []
+		
+		// Reinitialize wiggles
+		manager.add_wiggle()
+		manager.add_wiggle()
+		manager.add_wiggle()
+		manager.add_wiggle()
+	})
 
 })
 
