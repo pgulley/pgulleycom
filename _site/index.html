@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8"/>
+		<title>Paige Gulley</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Syne+Mono&family=Sono:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+		<link rel="stylesheet" href="/pgulleycom/assets/css/style.css" type="text/css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+		<script src="/pgulleycom/assets/js/jquery.min.js"> </script>
+		<script src="/pgulleycom/assets/js/jquery-ui.min.js"></script>
+		<script src="/pgulleycom/assets/js/svg.min.js"></script>
+		<script src="/pgulleycom/assets/js/threads.js"></script>
+		<script>
+			// Set bottom buffer height to half page height
+			document.addEventListener('DOMContentLoaded', function() {
+				const buffer = document.querySelector('.bottom-buffer');
+				if (buffer) {
+					buffer.style.height = (window.innerHeight / 2) + 'px';
+				}
+			});
+		</script>
+	</head>
+	<body>
+		<div class="container">
+			<!-- Left Column: Profile & Skills -->
+<div class="left-column">
+	<div class="profile-section">
+		<div class="headshot">
+			<img src="/pgulleycom/assets/images/paige.jpg" alt="Paige Gulley" />
+		</div>
+		<h2>Paige Gulley</h2>
+		<p class="tagline">Product Manager, Software Engineer, Educator</p>
+	</div>
+	
+	<!-- <div class="skills-section">
+		<h3>Skills</h3>
+		<ul class="skills-list">
+			<li>JavaScript</li>
+			<li>SVG Animation</li>
+			<li>Web Design</li>
+			<li>Creative Coding</li>
+			<li>Interactive Media</li>
+		</ul>
+	</div> /-->
+	
+	<div class="social-section">
+		<h3>Connect</h3>
+		<div class="social-links">
+			<a href="http://www.github.com/pgulley" class="social-link" title="GitHub" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> GitHub</a>
+			<a href="https://www.linkedin.com/in/paige-gulley-a26b6198/" class="social-link" title="LinkedIn" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i> LinkedIn</a>
+			<a href="https://docs.google.com/document/d/e/2PACX-1vToN4cWm3wgji2wjo4lUJXc7hVsnuADfPGwBJtiBmpsEaJIngoxgv9-rgIQ-lrYCA0hsCt0JasAoEHe/pub" class="social-link" title="CV/Resume" target="_blank" rel="noopener noreferrer"><i class="fas fa-file-alt"></i> CV</a>
+		</div>
+	</div>
+</div>
+
+			
+			<!-- Center Column: Showcase -->
+			<div class="center-column">
+				<div class="showcase-content">
+					<h1>Blog</h1>
+					<p>This is where I showcase my creative work, experiments, and projects.</p>
+					
+					<div class="featured-projects">
+						
+						<div class="project-card expandable-card" data-index="0">
+							<div class="card-content">
+								<div class="card-header">
+									<h3>This Website Of Mine</h3>
+									<button class="expand-btn" onclick="toggleCard(0)">
+										<i class="fas fa-chevron-down"></i>
+									</button>
+								</div>
+								<div class="card-text-container">
+									<div class="card-text-preview">
+										<p>It's finally time for a personal webpage. Here it is!</p>
+									</div>
+									<div class="card-text-full" style="display: none;">
+										<p>This site features a custom SVG animation system that creates dynamic, organic curves that constantly evolve and change. The animations are built with JavaScript and SVG, using procedural generation to create unique patterns each time.</p>
+
+<h2 id="technical-details">Technical Details</h2>
+
+<ul>
+  <li><strong>Three-column responsive layout</strong> with fixed sidebar and dynamic content</li>
+  <li><strong>Custom SVG wiggle system</strong> with configurable parameters</li>
+  <li><strong>Google Fonts integration</strong> (Syne Mono + Sono)</li>
+  <li><strong>CSS custom properties</strong> for easy theming</li>
+  <li><strong>Modular content system</strong> using markdown files</li>
+</ul>
+
+<p>The right column showcases my creative coding work with these animated SVG curves that respond to window resizing and create a living, breathing digital environment.</p>
+
+									</div>
+								</div>
+							</div>
+						</div>
+						
+						<div class="project-card expandable-card" data-index="1">
+							<div class="card-content">
+								<div class="card-header">
+									<h3>Product Management at MediaCloud</h3>
+									<button class="expand-btn" onclick="toggleCard(1)">
+										<i class="fas fa-chevron-down"></i>
+									</button>
+								</div>
+								<div class="card-text-container">
+									<div class="card-text-preview">
+										<p>Leading product development for an open-source media analysis platform used by journalists, resea...</p>
+									</div>
+									<div class="card-text-full" style="display: none;">
+										<h2 id="key-achievements">Key Achievements</h2>
+
+<ul>
+  <li><strong>User Research &amp; Strategy</strong>: Conducted extensive user interviews to understand journalist workflows and pain points</li>
+  <li><strong>Feature Development</strong>: Led development of new search and analysis tools that improved user engagement by 40%</li>
+  <li><strong>Open Source Community</strong>: Managed contributions from developers across 15+ countries</li>
+  <li><strong>Technical Integration</strong>: Worked closely with engineering teams to ensure scalable, maintainable solutions</li>
+</ul>
+
+<h2 id="impact">Impact</h2>
+
+<p>MediaCloud now processes over 1 billion articles annually and serves thousands of users in the journalism and research communities. The platform has been cited in academic papers and used by major news organizations for media analysis.</p>
+
+									</div>
+								</div>
+							</div>
+						</div>
+						
+						<div class="project-card expandable-card" data-index="2">
+							<div class="card-content">
+								<div class="card-header">
+									<h3>Creative Coding: First Year Seminar Curriculum</h3>
+									<button class="expand-btn" onclick="toggleCard(2)">
+										<i class="fas fa-chevron-down"></i>
+									</button>
+								</div>
+								<div class="card-text-container">
+									<div class="card-text-preview">
+										<p>Exploring the use of creativity in early computer science education</p>
+									</div>
+									<div class="card-text-full" style="display: none;">
+										<h2 id="more-context-incoming">More Context, incoming…</h2>
+
+									</div>
+								</div>
+							</div>
+						</div>
+						
+					</div>
+				</div>
+			</div>
+			
+			<!-- Right Column: SVG Wiggles (handled by JavaScript) -->
+			<div class="right-column">
+				<!-- SVG animations will be inserted here by threads.js -->
+			</div>
+		</div>
+		
+		<script>
+			function toggleCard(index) {
+				const card = document.querySelector(`[data-index="${index}"]`);
+				const preview = card.querySelector('.card-text-preview');
+				const fullContent = card.querySelector('.card-text-full');
+				const expandBtn = card.querySelector('.expand-btn i');
+				
+				if (fullContent.style.display === 'none') {
+					// Expanding - just show full content, hide preview
+					preview.style.display = 'none';
+					fullContent.style.display = 'block';
+					fullContent.style.maxHeight = fullContent.scrollHeight + 'px';
+					fullContent.style.opacity = '1';
+					expandBtn.className = 'fas fa-chevron-up';
+					card.classList.add('expanded');
+				} else {
+					// Collapsing - hide full content, show preview
+					fullContent.style.maxHeight = '0';
+					fullContent.style.opacity = '0';
+					setTimeout(() => {
+						fullContent.style.display = 'none';
+						preview.style.display = 'block';
+					}, 300);
+					expandBtn.className = 'fas fa-chevron-down';
+					card.classList.remove('expanded');
+				}
+			}
+		</script>
+	</body>
+</html>

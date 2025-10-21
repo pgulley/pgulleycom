@@ -1,0 +1,49 @@
+# Jekyll Configuration
+title: "Paige Gulley"
+description: "Product Manager, Software Engineer, Educator"
+author: "Paige Gulley"
+email: "paige@example.com"
+
+# Site settings
+url: "https://pgulley.github.io"
+baseurl: "/pgulleycom"
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+permalink: pretty
+
+# Collections
+collections:
+  blog:
+    output: true
+    permalink: /:collection/:name/
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+      type: "blog"
+    values:
+      layout: "default"
+
+# Sass settings
+sass:
+  sass_dir: _sass
+  style: compressed
+
+# GitHub Pages compatible plugins
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+
+# Exclude from processing
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/

@@ -182,7 +182,7 @@ body {
 
 .project-card h3 {
 	font-family: 'Syne Mono', monospace;
-	font-size: 1.3em;
+	font-size: 1.8em;
 	font-weight: 400;
 	margin-bottom: 10px;
 	color: var(--text-primary);
@@ -283,10 +283,6 @@ body {
 
 .expandable-card.expanded .card-text-full {
 	opacity: 1;
-}
-
-.expanded h3{
-	font-size: 2.5em;
 }
 
 /* Right Column: SVG Wiggles */

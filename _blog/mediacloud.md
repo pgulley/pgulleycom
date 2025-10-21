@@ -1,6 +1,9 @@
-# Product Management at MediaCloud
+---
+title: "Product Management at MediaCloud"
+excerpt: "Leading product development for an open-source media analysis platform used by journalists, researchers, and academics worldwide."
+date: 2024-09-15
+---
 
-Leading product development for an open-source media analysis platform used by journalists, researchers, and academics worldwide.
 
 ## Key Achievements
 

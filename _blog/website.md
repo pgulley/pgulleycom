@@ -1,6 +1,9 @@
-# This Website Of Mine
+---
+title: "This Website Of Mine"
+excerpt: "It's finally time for a personal webpage. Here it is!"
+date: 2024-10-20
+---
 
-It's finally time for a personal webpage. Here it is!
 
 This site features a custom SVG animation system that creates dynamic, organic curves that constantly evolve and change. The animations are built with JavaScript and SVG, using procedural generation to create unique patterns each time.
 

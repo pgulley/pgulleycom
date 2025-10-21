@@ -1,0 +1,99 @@
+---
+layout: default
+---
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8"/>
+		<title>{{ page.title | default: site.title }}</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Syne+Mono&family=Sono:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+		<link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}" type="text/css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+		<script src="{{ '/assets/js/jquery.min.js' | relative_url }}"> </script>
+		<script src="{{ '/assets/js/jquery-ui.min.js' | relative_url }}"></script>
+		<script src="{{ '/assets/js/svg.min.js' | relative_url }}"></script>
+		<script src="{{ '/assets/js/threads.js' | relative_url }}"></script>
+		<script>
+			// Set bottom buffer height to half page height
+			document.addEventListener('DOMContentLoaded', function() {
+				const buffer = document.querySelector('.bottom-buffer');
+				if (buffer) {
+					buffer.style.height = (window.innerHeight / 2) + 'px';
+				}
+			});
+		</script>
+	</head>
+	<body>
+		<div class="container">
+			{% include left-column.html %}
+			
+			<!-- Center Column: Showcase -->
+			<div class="center-column">
+				<div class="showcase-content">
+					<h1>Blog</h1>
+					<p>This is where I showcase my creative work, experiments, and projects.</p>
+					
+					<div class="featured-projects">
+						{% for item in site.blog reversed %}
+						<div class="project-card expandable-card" data-index="{{ forloop.index0 }}">
+							<div class="card-content">
+								<div class="card-header">
+									<h3>{{ item.title }}</h3>
+									<button class="expand-btn" onclick="toggleCard({{ forloop.index0 }})">
+										<i class="fas fa-chevron-down"></i>
+									</button>
+								</div>
+								<div class="card-text-container">
+									<div class="card-text-preview">
+										<p>{{ item.excerpt | strip_html | truncate: 100 }}</p>
+									</div>
+									<div class="card-text-full" style="display: none;">
+										{{ item.content }}
+									</div>
+								</div>
+							</div>
+						</div>
+						{% endfor %}
+					</div>
+				</div>
+			</div>
+			
+			<!-- Right Column: SVG Wiggles (handled by JavaScript) -->
+			<div class="right-column">
+				<!-- SVG animations will be inserted here by threads.js -->
+			</div>
+		</div>
+		
+		<script>
+			function toggleCard(index) {
+				const card = document.querySelector(`[data-index="${index}"]`);
+				const preview = card.querySelector('.card-text-preview');
+				const fullContent = card.querySelector('.card-text-full');
+				const expandBtn = card.querySelector('.expand-btn i');
+				
+				if (fullContent.style.display === 'none') {
+					// Expanding - just show full content, hide preview
+					preview.style.display = 'none';
+					fullContent.style.display = 'block';
+					fullContent.style.maxHeight = fullContent.scrollHeight + 'px';
+					fullContent.style.opacity = '1';
+					expandBtn.className = 'fas fa-chevron-up';
+					card.classList.add('expanded');
+				} else {
+					// Collapsing - hide full content, show preview
+					fullContent.style.maxHeight = '0';
+					fullContent.style.opacity = '0';
+					setTimeout(() => {
+						fullContent.style.display = 'none';
+						preview.style.display = 'block';
+					}, 300);
+					expandBtn.className = 'fas fa-chevron-down';
+					card.classList.remove('expanded');
+				}
+			}
+		</script>
+	</body>
+</html>
