@@ -134,7 +134,7 @@ function random_whitespace(ceiling){
 }
 
 function random_beads(length_ceiling){
-	var beads = ["❂","✾","✻","❇","✶","✵","◎","◉","◈","⬤","❁","✹","✣","✤","✥","✦","❅","❄","⬥","⬦","⧬","☉","✶✶","✶✶✶✶","✶❇✶","","","","","","","","","","",""]
+	var beads = ["❂","✾","✻","❇","✶","✵","◎","◉","◈","⬤","❁","✹","✣","✤","✥","✦","❅","❄","⬥","⬦","☉","✶✶","✶✶✶✶","✶❇✶","","","","","","","","","","",""]
 	var length_ = Math.floor(Math.random()*length_ceiling)
 	return Array.apply(null, {length:length_}).map(function(i){
 		choice = random_choice(beads)+" "

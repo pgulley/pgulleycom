@@ -16,6 +16,7 @@ layout: default
 		<script src="{{ '/assets/js/jquery-ui.min.js' | relative_url }}"></script>
 		<script src="{{ '/assets/js/svg.min.js' | relative_url }}"></script>
 		<script src="{{ '/assets/js/threads.js' | relative_url }}"></script>
+		<script src="{{ '/assets/js/blog-manager.js' | relative_url }}"></script>
 		<script>
 			// Set bottom buffer height to half page height
 			document.addEventListener('DOMContentLoaded', function() {
@@ -33,30 +34,18 @@ layout: default
 			<!-- Center Column: Showcase -->
 			<div class="center-column">
 				<div class="showcase-content">
-					<h1>Blog</h1>
+					<div class="blog-header">
+						<h1>Blog</h1>
+						<div class="filter-widget">
+							<select class="filter-select">
+								<option value="all">All Posts</option>
+							</select>
+						</div>
+					</div>
 					<p></p>
 					
 					<div class="featured-projects">
-						{% for item in site.blog reversed %}
-						<div class="project-card expandable-card" data-index="{{ forloop.index0 }}">
-							<div class="card-content">
-								<div class="card-header">
-									<h3>{{ item.title }}</h3>
-									<button class="expand-btn" onclick="toggleCard({{ forloop.index0 }})">
-										<i class="fas fa-chevron-down"></i>
-									</button>
-								</div>
-								<div class="card-text-container">
-									<div class="card-text-preview">
-										<p>{{ item.excerpt | strip_html | truncate: 100 }}</p>
-									</div>
-									<div class="card-text-full" style="display: none;">
-										{{ item.content }}
-									</div>
-								</div>
-							</div>
-						</div>
-						{% endfor %}
+						<!-- Posts will be loaded dynamically by blog-manager.js -->
 					</div>
 				</div>
 			</div>
@@ -67,33 +56,5 @@ layout: default
 			</div>
 		</div>
 		
-		<script>
-			function toggleCard(index) {
-				const card = document.querySelector(`[data-index="${index}"]`);
-				const preview = card.querySelector('.card-text-preview');
-				const fullContent = card.querySelector('.card-text-full');
-				const expandBtn = card.querySelector('.expand-btn i');
-				
-				if (fullContent.style.display === 'none') {
-					// Expanding - just show full content, hide preview
-					preview.style.display = 'none';
-					fullContent.style.display = 'block';
-					fullContent.style.maxHeight = fullContent.scrollHeight + 'px';
-					fullContent.style.opacity = '1';
-					expandBtn.className = 'fas fa-chevron-up';
-					card.classList.add('expanded');
-				} else {
-					// Collapsing - hide full content, show preview
-					fullContent.style.maxHeight = '0';
-					fullContent.style.opacity = '0';
-					setTimeout(() => {
-						fullContent.style.display = 'none';
-						preview.style.display = 'block';
-					}, 300);
-					expandBtn.className = 'fas fa-chevron-down';
-					card.classList.remove('expanded');
-				}
-			}
-		</script>
 	</body>
 </html>

@@ -19,14 +19,6 @@ collections:
     output: true
     permalink: /:collection/:name/
 
-# Defaults
-defaults:
-  - scope:
-      path: ""
-      type: "blog"
-    values:
-      layout: "default"
-
 # Sass settings
 sass:
   sass_dir: _sass

@@ -1,0 +1,22 @@
+---
+layout: null
+---
+
+{
+  "posts": [
+    {% for item in site.blog reversed %}
+    {
+      "title": {{ item.title | jsonify }},
+      "excerpt": {{ item.excerpt | jsonify }},
+      "date": {{ item.date | date: "%Y-%m-%d" | jsonify }},
+      "tags": {% if item.tags %}{{ item.tags | jsonify }}{% else %}[]{% endif %},
+      "url": {{ item.url | prepend: site.baseurl | jsonify }},
+      "slug": {{ item.slug | jsonify }}
+    }{% if forloop.last == false %},{% endif %}
+    {% endfor %}
+  ],
+  "meta": {
+    "total_posts": {{ site.blog.size }},
+    "all_tags": {% assign all_tags = site.blog | map: 'tags' | compact | flatten | uniq | sort %}{{ all_tags | jsonify }}
+  }
+}

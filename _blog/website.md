@@ -2,6 +2,8 @@
 title: "This site itself is a demo"
 excerpt: "It's finally time for a personal webpage. Here it is!"
 date: 2025-10-20
+tags: ["showcase", "personal"]
+layout: post
 ---
 
 
