@@ -6,7 +6,7 @@
       "excerpt": "It's finally time for a personal webpage. Here it is!",
       "date": "2025-10-20",
       "tags": ["showcase","personal"],
-      "url": "/pgulleycom/blog/website/",
+      "url": "/blog/website/",
       "slug": "website"
     },
     
@@ -15,7 +15,7 @@
       "excerpt": "Leading product development for an open-source media analysis platform used by journalists, researchers, and academics worldwide.",
       "date": "2025-10-20",
       "tags": ["showcase","product-management"],
-      "url": "/pgulleycom/blog/mediacloud/",
+      "url": "/blog/mediacloud/",
       "slug": "mediacloud"
     },
     
@@ -24,7 +24,7 @@
       "excerpt": "Exploring the use of creativity in early computer science education",
       "date": "2025-10-20",
       "tags": ["showcase","education"],
-      "url": "/pgulleycom/blog/creative-coding/",
+      "url": "/blog/creative-coding/",
       "slug": "creative-coding"
     }
     
